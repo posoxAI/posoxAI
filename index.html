@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Четыре браузерные игры: Панелька, Пять в линию, Кладовщик и Сапёр. Four small browser games.">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Игротека</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;600&family=Dela+Gothic+One&display=swap">
+<style>
+  /* Layout: a shelf of game boxes. Square box art in a two-by-two grid, one heavy title above it, everything else plain. */
+  :root {
+    --bg: #F0F1ED;
+    --ink: #15171A;
+    --muted: #585E65;
+    --line: #C8CBC5;
+    --accent: #2B3FD6;
+    --on-accent: #FFFFFF;
+    --show-day: block;
+    --show-night: none;
+    --display: "Dela Gothic One", "Arial Black", "Segoe UI", sans-serif;
+    --body: "Commissioner", "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #121315;
+      --ink: #ECEDE9;
+      --muted: #9BA0A6;
+      --line: #2E3135;
+      --accent: #9DAAFF;
+      --on-accent: #0D1133;
+      --show-day: none;
+      --show-night: block;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #121315;
+    --ink: #ECEDE9;
+    --muted: #9BA0A6;
+    --line: #2E3135;
+    --accent: #9DAAFF;
+    --on-accent: #0D1133;
+    --show-day: none;
+    --show-night: block;
+    color-scheme: dark;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 16px;
+    line-height: 1.5;
+    padding-inline: 16px;
+    padding-block: 28px 36px;
+  }
+  .page {
+    width: min(100%, 880px);
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+  a { color: inherit; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+  .top { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px 24px; flex-wrap: wrap; }
+  .intro { display: flex; flex-direction: column; gap: 10px; min-width: 0; flex: 1 1 320px; }
+  h1 {
+    margin: 0;
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: clamp(40px, 9vw, 68px);
+    line-height: 1;
+    letter-spacing: -0.01em;
+  }
+  .lede { margin: 0; max-width: 56ch; color: var(--muted); font-size: 17px; }
+  .seg { display: inline-flex; border: 1px solid var(--line); border-radius: 4px; overflow: hidden; }
+  .seg button {
+    font: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+    background: none;
+    border: 0;
+    padding: 5px 11px;
+    cursor: pointer;
+  }
+  .seg button[aria-pressed="true"] { color: var(--on-accent); background: var(--accent); }
+  .seg button:focus-visible { outline-offset: -2px; }
+
+  .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px 28px; }
+  .card { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+  .art {
+    display: block;
+    aspect-ratio: 1;
+    max-width: 100%;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    overflow: hidden;
+    transition: transform 0.18s ease;
+  }
+  .art img { width: 100%; height: 100%; object-fit: cover; }
+  .art .day { display: var(--show-day); }
+  .art .night { display: var(--show-night); }
+  .art:hover { transform: translateY(-3px); }
+  .text { display: flex; flex-direction: column; gap: 6px; }
+  .kind { margin: 0; font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+  h2 { margin: 0; font-family: var(--display); font-weight: 400; font-size: 26px; line-height: 1.15; text-wrap: balance; }
+  .about { margin: 0; }
+  .links { display: flex; align-items: center; gap: 8px 18px; flex-wrap: wrap; margin: 6px 0 0; }
+  .play {
+    display: inline-block;
+    font-weight: 600;
+    color: var(--on-accent);
+    background: var(--accent);
+    border-radius: 4px;
+    padding: 8px 18px;
+    text-decoration: none;
+  }
+  .play:hover { filter: brightness(1.1); }
+  .code { color: var(--muted); text-underline-offset: 3px; }
+  .code:hover { color: var(--ink); }
+
+  footer { border-top: 1px solid var(--line); padding-top: 18px; color: var(--muted); font-size: 14px; }
+  footer p { margin: 0; max-width: 68ch; }
+
+  @media (max-width: 640px) {
+    .grid { grid-template-columns: minmax(0, 1fr); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .art { transition: none; }
+    .art:hover { transform: none; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="top">
+    <div class="intro">
+      <h1 id="title">Игротека</h1>
+      <p class="lede" id="lede"></p>
+    </div>
+    <span class="seg" role="group" aria-label="Язык / Language">
+      <button type="button" id="langRu" aria-pressed="true">RU</button>
+      <button type="button" id="langEn" aria-pressed="false">EN</button>
+    </span>
+  </header>
+
+  <main class="grid" id="grid"></main>
+
+  <footer>
+    <p id="foot"></p>
+  </footer>
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  var SITE = 'https://posoxai.github.io/', CODE = 'https://github.com/posoxAI/';
+
+  // One entry per game. `langKey` is where that game keeps its language choice.
+  var GAMES = [
+    {
+      repo: 'PanelHouseBuildGame', shot: 'panelka', langKey: 'panelka-lang',
+      ru: { name: 'Панелька', kind: 'Аркада на реакцию · своя идея',
+            about: 'Кран подвозит этажи панельного дома, а вы ставите их одним нажатием. Всё, что свисает, срезается: чем ровнее, тем выше дом.',
+            alt: 'Панелька: кран опускает этаж на панельный дом' },
+      en: { name: 'Panelka', kind: 'Reaction arcade · original',
+            about: 'A crane brings the floors of a panel apartment block and you drop each one with a single tap. Overhang is cut off, so the straighter you build, the taller it gets.',
+            alt: 'Panelka: a crane lowers a floor onto a panel apartment block' }
+    },
+    {
+      repo: 'FiveInLineGame', shot: 'lines', langKey: 'lines5-lang',
+      ru: { name: 'Пять в линию', kind: 'Головоломка · правила Color Lines, 1992',
+            about: 'Двигайте шарики по полю 9 × 9 и собирайте пять одного цвета в ряд, пока поле не заполнилось.',
+            alt: 'Пять в линию: поле с цветными шариками, четыре жёлтых стоят в ряд' },
+      en: { name: 'Five in a Line', kind: 'Puzzle · rules of Color Lines, 1992',
+            about: 'Move marbles on a 9 × 9 board and line up five of one colour before the board fills.',
+            alt: 'Five in a Line: a board of coloured marbles with four yellow ones in a row' }
+    },
+    {
+      repo: 'StorekeeperGame', shot: 'sklad', langKey: 'sklad-lang',
+      ru: { name: 'Кладовщик', kind: 'Головоломка · правила сокобана, 1981',
+            about: 'Двенадцать уровней, где нужно задвинуть ящики на отмеченные места. Для каждого посчитан минимум толчков, а подсказка покажет следующий ход.',
+            alt: 'Кладовщик: склад сверху, ящики и отмеченные места' },
+      en: { name: 'Storekeeper', kind: 'Puzzle · rules of Sokoban, 1981',
+            about: 'Twelve levels of pushing crates onto marked spots. Each one comes with its minimum number of pushes, and a hint shows the next move.',
+            alt: 'Storekeeper: a warehouse from above with crates and marked spots' }
+    },
+    {
+      repo: 'MinesweeperGame', shot: 'saper', langKey: 'saper-lang',
+      ru: { name: 'Сапёр', kind: 'Головоломка · классика Windows',
+            about: 'Три классических поля, флажки, таймер и рекорды. Первый ход всегда безопасен.',
+            alt: 'Сапёр: минное поле в середине партии, с числами и флажками' },
+      en: { name: 'Minesweeper', kind: 'Puzzle · a Windows classic',
+            about: 'The three classic field sizes, flags, a timer and best times. The first click is always safe.',
+            alt: 'Minesweeper: a minefield mid-game, with numbers and flags' }
+    }
+  ];
+
+  var STR = {
+    ru: {
+      title: 'Игротека',
+      lede: 'Четыре небольшие игры для браузера. Каждая умещается в один файл, работает на телефоне и на компьютере и говорит по-русски и по-английски.',
+      play: 'Играть', code: 'Код на GitHub', playAria: 'Играть: ',
+      foot: 'Игры написал Claude, ИИ-ассистент компании Anthropic. Идеи и правки принадлежат posoxAI. Код открыт под лицензией MIT.'
+    },
+    en: {
+      title: 'Game Shelf',
+      lede: 'Four small games for the browser. Each one fits in a single file, works on a phone and on a computer, and speaks Russian and English.',
+      play: 'Play', code: 'Code on GitHub', playAria: 'Play: ',
+      foot: 'The games were written by Claude, the AI assistant made by Anthropic. Ideas and direction came from posoxAI. The code is open under the MIT license.'
+    }
+  };
+
+  function load(key, fallback) {
+    try { var v = localStorage.getItem(key); return v === null ? fallback : v; } catch (e) { return fallback; }
+  }
+  function save(key, value) {
+    try { localStorage.setItem(key, String(value)); } catch (e) { /* storage is optional */ }
+  }
+  // a saved choice wins; otherwise Russian for anyone who lists it among their browser languages
+  function pickLang() {
+    var saved = load('shelf-lang', '');
+    if (saved === 'ru' || saved === 'en') return saved;
+    var list = (navigator.languages && navigator.languages.length) ? navigator.languages : [navigator.language || 'en'];
+    for (var k = 0; k < list.length; k++) if (String(list[k]).toLowerCase().indexOf('ru') === 0) return 'ru';
+    return 'en';
+  }
+  var lang = pickLang();
+
+  function el(tag, cls, text) {
+    var e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text !== undefined) e.textContent = text;
+    return e;
+  }
+  function img(cls, src, alt) {
+    var i = el('img', cls);
+    i.src = src; i.alt = alt; i.width = 640; i.height = 640; i.loading = 'lazy'; i.decoding = 'async';
+    return i;
+  }
+
+  function render() {
+    var S = STR[lang], grid = document.getElementById('grid');
+    document.documentElement.lang = lang;
+    document.title = S.title;
+    document.getElementById('title').textContent = S.title;
+    document.getElementById('lede').textContent = S.lede;
+    document.getElementById('foot').textContent = S.foot;
+    document.getElementById('langRu').setAttribute('aria-pressed', lang === 'ru' ? 'true' : 'false');
+    document.getElementById('langEn').setAttribute('aria-pressed', lang === 'en' ? 'true' : 'false');
+    grid.textContent = '';
+    GAMES.forEach(function (g) {
+      var t = g[lang], card = el('article', 'card');
+      var art = el('a', 'art');
+      art.href = SITE + g.repo + '/';
+      art.setAttribute('aria-label', S.playAria + t.name);
+      art.appendChild(img('day', 'shots/' + g.shot + '-day.webp', t.alt));
+      art.appendChild(img('night', 'shots/' + g.shot + '-night.webp', t.alt));
+      var text = el('div', 'text');
+      text.appendChild(el('p', 'kind', t.kind));
+      text.appendChild(el('h2', '', t.name));
+      text.appendChild(el('p', 'about', t.about));
+      var links = el('p', 'links');
+      var play = el('a', 'play', S.play); play.href = SITE + g.repo + '/';
+      var code = el('a', 'code', S.code); code.href = CODE + g.repo;
+      links.appendChild(play); links.appendChild(code);
+      text.appendChild(links);
+      card.appendChild(art); card.appendChild(text);
+      grid.appendChild(card);
+    });
+  }
+
+  function setLang(next) {
+    if (next === lang) return;
+    lang = next;
+    save('shelf-lang', lang);
+    // on the shared site the games read these keys, so they open in the language picked here
+    GAMES.forEach(function (g) { save(g.langKey, lang); });
+    render();
+  }
+  document.getElementById('langRu').addEventListener('click', function () { setLang('ru'); });
+  document.getElementById('langEn').addEventListener('click', function () { setLang('en'); });
+
+  render();
+})();
+</script>
+</body>
+</html>
