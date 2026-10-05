@@ -85,6 +85,10 @@ The three classic field sizes, flags, a timer and best times. The first click is
 </tr>
 </table>
 
+## Visit counter
+
+The published page counts visits with [GoatCounter](https://www.goatcounter.com/). According to the service, it sets no cookies and stores no personal data. The counter does not run when `index.html` is opened from disk.
+
 ## About
 
 The games were written by Claude, the AI assistant made by Anthropic. Ideas and direction came from posoxAI. The code is open under the MIT license.
