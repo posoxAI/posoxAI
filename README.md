@@ -2,7 +2,7 @@
 
 [Русская версия](README.ru.md)
 
-Four small games for the browser. Each one fits in a single file, works on a phone and on a computer, and speaks English and Russian.
+Five small games for the browser. Each one fits in a single file, works on a phone and on a computer, and speaks English and Russian.
 
 **[All games on one page](https://posoxai.github.io/posoxAI/)**
 
@@ -80,6 +80,25 @@ Twelve levels with the rules of Sokoban: push the crates onto marked spots. Each
 The three classic field sizes, flags, a timer and best times. The first click is always safe.
 
 [Play](https://posoxai.github.io/MinesweeperGame/) · [Code](https://github.com/posoxAI/MinesweeperGame)
+
+</td>
+</tr>
+<tr>
+<td width="220" valign="top">
+<a href="https://posoxai.github.io/Bubbles/">
+<picture>
+<source media="(prefers-color-scheme: dark)" srcset="shots/bubbles-night.webp">
+<img src="shots/bubbles-day.webp" width="200" alt="Bubbles: rows of coloured bubbles and a cannon below them">
+</picture>
+</a>
+</td>
+<td valign="top">
+
+### Bubbles
+
+Shoot bubbles from a cannon: three or more of one colour pop, and anything left without support falls. Clear the field before the rows come down to the cannon.
+
+[Play](https://posoxai.github.io/Bubbles/) · [Code](https://github.com/posoxAI/Bubbles)
 
 </td>
 </tr>

@@ -2,7 +2,7 @@
 
 [English version](README.md)
 
-Четыре небольшие игры для браузера. Каждая умещается в один файл, работает на телефоне и на компьютере и говорит по-русски и по-английски.
+Пять небольших игр для браузера. Каждая умещается в один файл, работает на телефоне и на компьютере и говорит по-русски и по-английски.
 
 **[Все игры на одной странице](https://posoxai.github.io/posoxAI/)**
 
@@ -80,6 +80,25 @@
 Три классических поля, флажки, таймер и рекорды. Первый ход всегда безопасен.
 
 [Играть](https://posoxai.github.io/MinesweeperGame/) · [Код](https://github.com/posoxAI/MinesweeperGame)
+
+</td>
+</tr>
+<tr>
+<td width="220" valign="top">
+<a href="https://posoxai.github.io/Bubbles/">
+<picture>
+<source media="(prefers-color-scheme: dark)" srcset="shots/bubbles-night.webp">
+<img src="shots/bubbles-day.webp" width="200" alt="Пузыри: ряды цветных пузырей и пушка под ними">
+</picture>
+</a>
+</td>
+<td valign="top">
+
+### Пузыри
+
+Стреляйте пузырями из пушки: три и больше одного цвета лопаются, а всё, что осталось без опоры, падает. Очистите поле, пока ряды не опустились до пушки.
+
+[Играть](https://posoxai.github.io/Bubbles/) · [Код](https://github.com/posoxAI/Bubbles)
 
 </td>
 </tr>
