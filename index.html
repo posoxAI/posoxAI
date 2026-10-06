@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Пять браузерных игр: Панелька, Пять в линию, Кладовщик, Сапёр и Пузыри. Five small browser games.">
+<meta name="description" content="Шесть браузерных игр: Панелька, Пять в линию, Кладовщик, Сапёр, Пузыри и Теннис. Six small browser games.">
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>Игротека</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;600&family=Dela+Gothic+One&display=swap">
 <style>
-  /* Layout: a shelf of game boxes. Square box art in a two-by-two grid, one heavy title above it, everything else plain. */
+  /* Layout: a shelf of game boxes. Square box art in two columns, one heavy title above it, everything else plain. */
   :root {
     --bg: #F0F1ED;
     --ink: #15171A;
@@ -209,19 +209,28 @@
       en: { name: 'Bubbles', kind: 'Aiming arcade · a bubble shooter',
             about: 'Shoot bubbles from a cannon: three or more of one colour pop, and anything left without support falls. Clear the field before the rows come down to the cannon.',
             alt: 'Bubbles: rows of coloured bubbles and a cannon below them' }
+    },
+    {
+      repo: 'Tennis', shot: 'tennis', langKey: 'tennis-lang',
+      ru: { name: 'Теннис', kind: 'Аркада на двоих · правила Pong, 1972',
+            about: 'Две ракетки и мяч: отбивайте, пока соперник не промахнётся. Против компьютера на трёх уровнях сложности или вдвоём на одном устройстве, партия до 11 очков.',
+            alt: 'Теннис: корт сверху, мяч летит к ракетке' },
+      en: { name: 'Tennis', kind: 'Arcade for two · rules of Pong, 1972',
+            about: 'Two paddles and a ball: keep hitting it back until the other side misses. Against the computer on three difficulty levels or with a second person on the same device, first to 11 points.',
+            alt: 'Tennis: a court from above with the ball flying toward a paddle' }
     }
   ];
 
   var STR = {
     ru: {
       title: 'Игротека',
-      lede: 'Пять небольших игр для браузера. Каждая умещается в один файл, работает на телефоне и на компьютере и говорит по-русски и по-английски.',
+      lede: 'Шесть небольших игр для браузера. Каждая умещается в один файл, работает на телефоне и на компьютере и говорит по-русски и по-английски.',
       play: 'Играть', code: 'Код на GitHub', playAria: 'Играть: ',
       foot: 'Игры написал Claude, ИИ-ассистент компании Anthropic. Идеи и правки принадлежат posoxAI. Код открыт под лицензией MIT.'
     },
     en: {
       title: 'Game Shelf',
-      lede: 'Five small games for the browser. Each one fits in a single file, works on a phone and on a computer, and speaks Russian and English.',
+      lede: 'Six small games for the browser. Each one fits in a single file, works on a phone and on a computer, and speaks Russian and English.',
       play: 'Play', code: 'Code on GitHub', playAria: 'Play: ',
       foot: 'The games were written by Claude, the AI assistant made by Anthropic. Ideas and direction came from posoxAI. The code is open under the MIT license.'
     }

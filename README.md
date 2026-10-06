@@ -2,7 +2,7 @@
 
 [Русская версия](README.ru.md)
 
-Five small games for the browser. Each one fits in a single file, works on a phone and on a computer, and speaks English and Russian.
+Six small games for the browser. Each one fits in a single file, works on a phone and on a computer, and speaks English and Russian.
 
 **[All games on one page](https://posoxai.github.io/posoxAI/)**
 
@@ -99,6 +99,25 @@ The three classic field sizes, flags, a timer and best times. The first click is
 Shoot bubbles from a cannon: three or more of one colour pop, and anything left without support falls. Clear the field before the rows come down to the cannon.
 
 [Play](https://posoxai.github.io/Bubbles/) · [Code](https://github.com/posoxAI/Bubbles)
+
+</td>
+</tr>
+<tr>
+<td width="220" valign="top">
+<a href="https://posoxai.github.io/Tennis/">
+<picture>
+<source media="(prefers-color-scheme: dark)" srcset="shots/tennis-night.webp">
+<img src="shots/tennis-day.webp" width="200" alt="Tennis: a court from above with the ball flying toward a paddle">
+</picture>
+</a>
+</td>
+<td valign="top">
+
+### Tennis
+
+Two paddles and a ball, with the rules of Pong, 1972. Play against the computer on three difficulty levels or with a second person on the same device, first to 11 points.
+
+[Play](https://posoxai.github.io/Tennis/) · [Code](https://github.com/posoxAI/Tennis)
 
 </td>
 </tr>

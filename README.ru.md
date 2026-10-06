@@ -2,7 +2,7 @@
 
 [English version](README.md)
 
-Пять небольших игр для браузера. Каждая умещается в один файл, работает на телефоне и на компьютере и говорит по-русски и по-английски.
+Шесть небольших игр для браузера. Каждая умещается в один файл, работает на телефоне и на компьютере и говорит по-русски и по-английски.
 
 **[Все игры на одной странице](https://posoxai.github.io/posoxAI/)**
 
@@ -99,6 +99,25 @@
 Стреляйте пузырями из пушки: три и больше одного цвета лопаются, а всё, что осталось без опоры, падает. Очистите поле, пока ряды не опустились до пушки.
 
 [Играть](https://posoxai.github.io/Bubbles/) · [Код](https://github.com/posoxAI/Bubbles)
+
+</td>
+</tr>
+<tr>
+<td width="220" valign="top">
+<a href="https://posoxai.github.io/Tennis/">
+<picture>
+<source media="(prefers-color-scheme: dark)" srcset="shots/tennis-night.webp">
+<img src="shots/tennis-day.webp" width="200" alt="Теннис: корт сверху, мяч летит к ракетке">
+</picture>
+</a>
+</td>
+<td valign="top">
+
+### Теннис
+
+Две ракетки и мяч по правилам Pong 1972 года. Играйте против компьютера на трёх уровнях сложности или вдвоём на одном устройстве, партия до 11 очков.
+
+[Играть](https://posoxai.github.io/Tennis/) · [Код](https://github.com/posoxAI/Tennis)
 
 </td>
 </tr>
