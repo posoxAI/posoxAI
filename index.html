@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Восемь браузерных игр: Панелька, Пять в линию, Кладовщик, Сапёр, Пузыри, Теннис, Змейка и Кирпичи. Eight small browser games.">
+<meta name="description" content="Девять браузерных игр: Панелька, Пять в линию, Кладовщик, Сапёр, Пузыри, Теннис, Змейка, Кирпичи и 2048. Nine small browser games.">
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>Игротека</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;600&family=Dela+Gothic+One&display=swap">
@@ -236,19 +236,28 @@
       en: { name: 'Bricks', kind: 'Arcade · rules of Arkanoid, 1986',
             about: 'Break the wall with a ball and a paddle. Six levels, strong and steel bricks, capsules with a wide paddle, a slow ball and three balls.',
             alt: 'Bricks: a half-broken wall of coloured bricks and a steel ball' }
+    },
+    {
+      repo: '2048', shot: 'g2048', langKey: 'g2048-lang',
+      ru: { name: '2048', kind: 'Головоломка · правила 2048, 2014',
+            about: 'Сдвигайте плитки и сливайте одинаковые числа, пока не соберёте 2048. Плитки окрашены как тепловая карта, последний ход можно отменить.',
+            alt: '2048: поле 4 на 4 с плитками от голубых до оранжевых' },
+      en: { name: '2048', kind: 'Puzzle · rules of 2048, 2014',
+            about: 'Slide the tiles and merge equal numbers until you make 2048. The tiles are coloured like a heat map, and the last move can be undone.',
+            alt: '2048: a 4 by 4 board with tiles from pale blue to orange' }
     }
   ];
 
   var STR = {
     ru: {
       title: 'Игротека',
-      lede: 'Восемь небольших игр для браузера. Каждая умещается в один файл, работает на телефоне и на компьютере и говорит по-русски и по-английски.',
+      lede: 'Девять небольших игр для браузера. Каждая умещается в один файл, работает на телефоне и на компьютере и говорит по-русски и по-английски.',
       play: 'Играть', code: 'Код на GitHub', playAria: 'Играть: ',
       foot: 'Игры написал Claude, ИИ-ассистент компании Anthropic. Идеи и правки принадлежат posoxAI. Код открыт под лицензией MIT.'
     },
     en: {
       title: 'Game Shelf',
-      lede: 'Eight small games for the browser. Each one fits in a single file, works on a phone and on a computer, and speaks Russian and English.',
+      lede: 'Nine small games for the browser. Each one fits in a single file, works on a phone and on a computer, and speaks Russian and English.',
       play: 'Play', code: 'Code on GitHub', playAria: 'Play: ',
       foot: 'The games were written by Claude, the AI assistant made by Anthropic. Ideas and direction came from posoxAI. The code is open under the MIT license.'
     }

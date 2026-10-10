@@ -2,7 +2,7 @@
 
 [Русская версия](README.ru.md)
 
-Eight small games for the browser. Each one fits in a single file, works on a phone and on a computer, and speaks English and Russian.
+Nine small games for the browser. Each one fits in a single file, works on a phone and on a computer, and speaks English and Russian.
 
 **[All games on one page](https://posoxai.github.io/posoxAI/)**
 
@@ -156,6 +156,25 @@ Steer the snake to the apples and do not run into yourself, on the screen of an 
 Break the wall with a ball and a paddle, with the rules of Arkanoid, 1986. Six levels, strong and steel bricks, and capsules with a wide paddle, a slow ball and three balls.
 
 [Play](https://posoxai.github.io/Bricks/) · [Code](https://github.com/posoxAI/Bricks)
+
+</td>
+</tr>
+<tr>
+<td width="220" valign="top">
+<a href="https://posoxai.github.io/2048/">
+<picture>
+<source media="(prefers-color-scheme: dark)" srcset="shots/g2048-night.webp">
+<img src="shots/g2048-day.webp" width="200" alt="2048: a 4 by 4 board with tiles from pale blue to orange">
+</picture>
+</a>
+</td>
+<td valign="top">
+
+### 2048
+
+Slide the tiles and merge equal numbers until you make 2048. The tiles are coloured like a heat map, each shows its power of two, and the last move can be undone.
+
+[Play](https://posoxai.github.io/2048/) · [Code](https://github.com/posoxAI/2048)
 
 </td>
 </tr>
