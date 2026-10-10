@@ -2,7 +2,7 @@
 
 [Русская версия](README.ru.md)
 
-Seven small games for the browser. Each one fits in a single file, works on a phone and on a computer, and speaks English and Russian.
+Eight small games for the browser. Each one fits in a single file, works on a phone and on a computer, and speaks English and Russian.
 
 **[All games on one page](https://posoxai.github.io/posoxAI/)**
 
@@ -137,6 +137,25 @@ Two paddles and a ball, with the rules of Pong, 1972. Play against the computer 
 Steer the snake to the apples and do not run into yourself, on the screen of an old monochrome phone. Three speeds, walls on or off, arrow keys, swipes or an on-screen pad.
 
 [Play](https://posoxai.github.io/Snake/) · [Code](https://github.com/posoxAI/Snake)
+
+</td>
+</tr>
+<tr>
+<td width="220" valign="top">
+<a href="https://posoxai.github.io/Bricks/">
+<picture>
+<source media="(prefers-color-scheme: dark)" srcset="shots/bricks-night.webp">
+<img src="shots/bricks-day.webp" width="200" alt="Bricks: a half-broken wall of coloured bricks and a steel ball">
+</picture>
+</a>
+</td>
+<td valign="top">
+
+### Bricks
+
+Break the wall with a ball and a paddle, with the rules of Arkanoid, 1986. Six levels, strong and steel bricks, and capsules with a wide paddle, a slow ball and three balls.
+
+[Play](https://posoxai.github.io/Bricks/) · [Code](https://github.com/posoxAI/Bricks)
 
 </td>
 </tr>
