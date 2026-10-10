@@ -2,7 +2,7 @@
 
 [Русская версия](README.ru.md)
 
-Six small games for the browser. Each one fits in a single file, works on a phone and on a computer, and speaks English and Russian.
+Seven small games for the browser. Each one fits in a single file, works on a phone and on a computer, and speaks English and Russian.
 
 **[All games on one page](https://posoxai.github.io/posoxAI/)**
 
@@ -118,6 +118,25 @@ Shoot bubbles from a cannon: three or more of one colour pop, and anything left 
 Two paddles and a ball, with the rules of Pong, 1972. Play against the computer on three difficulty levels or with a second person on the same device, first to 11 points.
 
 [Play](https://posoxai.github.io/Tennis/) · [Code](https://github.com/posoxAI/Tennis)
+
+</td>
+</tr>
+<tr>
+<td width="220" valign="top">
+<a href="https://posoxai.github.io/Snake/">
+<picture>
+<source media="(prefers-color-scheme: dark)" srcset="shots/snake-night.webp">
+<img src="shots/snake-day.webp" width="200" alt="Snake: a long snake on a green screen, heading for an apple">
+</picture>
+</a>
+</td>
+<td valign="top">
+
+### Snake
+
+Steer the snake to the apples and do not run into yourself, on the screen of an old monochrome phone. Three speeds, walls on or off, arrow keys, swipes or an on-screen pad.
+
+[Play](https://posoxai.github.io/Snake/) · [Code](https://github.com/posoxAI/Snake)
 
 </td>
 </tr>
