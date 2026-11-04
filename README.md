@@ -2,7 +2,7 @@
 
 [Русская версия](README.ru.md)
 
-Nine small games for the browser. Each one fits in a single file, works on a phone and on a computer, and speaks English and Russian.
+Ten small games for the browser. Each one fits in a single file, works on a phone and on a computer, and speaks English and Russian.
 
 **[All games on one page](https://posoxai.github.io/posoxAI/)**
 
@@ -175,6 +175,25 @@ Break the wall with a ball and a paddle, with the rules of Arkanoid, 1986. Six l
 Slide the tiles and merge equal numbers until you make 2048. The tiles are coloured like a heat map, each shows its power of two, and the last move can be undone.
 
 [Play](https://posoxai.github.io/2048/) · [Code](https://github.com/posoxAI/2048)
+
+</td>
+</tr>
+<tr>
+<td width="220" valign="top">
+<a href="https://posoxai.github.io/Pipes/">
+<picture>
+<source media="(prefers-color-scheme: dark)" srcset="shots/pipes-night.webp">
+<img src="shots/pipes-day.webp" width="200" alt="Pipes: copper pipes on a tiled floor with water running along a loop">
+</picture>
+</a>
+</td>
+<td valign="top">
+
+### Pipes
+
+Lay a pipeline from the tap with pieces from a queue before the water comes on, after Pipe Mania, 1989. Every level wants a longer way and faster water.
+
+[Play](https://posoxai.github.io/Pipes/) · [Code](https://github.com/posoxAI/Pipes)
 
 </td>
 </tr>
