@@ -53,12 +53,11 @@
     font-family: var(--body);
     font-size: 16px;
     line-height: 1.5;
-    padding-inline: 16px;
-    padding-block: 28px 36px;
+    padding: 28px 16px 36px;
   }
   .page {
-    width: min(100%, 880px);
-    margin-inline: auto;
+    max-width: 880px;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     gap: 32px;
@@ -72,6 +71,7 @@
     margin: 0;
     font-family: var(--display);
     font-weight: 400;
+    font-size: 52px;
     font-size: clamp(40px, 9vw, 68px);
     line-height: 1;
     letter-spacing: -0.01em;
@@ -92,7 +92,7 @@
   .seg button[aria-pressed="true"] { color: var(--on-accent); background: var(--accent); }
   .seg button:focus-visible { outline-offset: -2px; }
 
-  .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px 28px; }
+  .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-gap: 36px 28px; gap: 36px 28px; }
   .card { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
   .art {
     display: block;
@@ -131,6 +131,31 @@
   @media (max-width: 640px) {
     .grid { grid-template-columns: minmax(0, 1fr); }
   }
+
+  /* Old Safari, such as an iPad 2 on iOS 9. Without grid the cards wrap two to a row by width; without
+     aspect-ratio the picture box keeps its square from padding; without gap in flex the spacing comes from
+     margins (the script sets .nogap after measuring). Newer browsers skip all of this. */
+  @supports not (display: grid) {
+    .grid { display: flex; flex-wrap: wrap; justify-content: space-between; }
+    .card { width: 48%; width: calc(50% - 14px); margin-bottom: 36px; }
+  }
+  @supports not (aspect-ratio: 1) {
+    .art { position: relative; height: 0; padding-top: 100%; }
+    .art img { position: absolute; top: 0; left: 0; }
+  }
+  .nogap .page > * + *, .nogap .grid { margin-top: 32px; }
+  .nogap .intro > * + * { margin-top: 10px; }
+  .nogap .card > * + * { margin-top: 14px; }
+  .nogap .text > * + * { margin-top: 6px; }
+  .nogap .top > * { margin-bottom: 16px; }
+  .nogap .top { margin-bottom: -16px; }
+  .nogap .top > * + * { margin-left: 24px; }
+  .nogap .links > * { margin: 0 18px 8px 0; }
+  .nogap .links { margin-bottom: -8px; }
+
+  @media (max-width: 640px) {
+    .card { width: 100%; }
+  }
   @media (prefers-reduced-motion: reduce) {
     .art { transition: none; }
     .art:hover { transform: none; }
@@ -160,6 +185,17 @@
 <script>
 (function () {
   'use strict';
+
+  // Flex rows and columns space their items with gap; where gap does nothing in flex the page uses margins.
+  (function () {
+    var t = document.createElement('div');
+    t.style.cssText = 'display:flex;flex-direction:column;gap:1px;position:absolute;visibility:hidden';
+    t.appendChild(document.createElement('div'));
+    t.appendChild(document.createElement('div'));
+    document.body.appendChild(t);
+    if (t.scrollHeight !== 1) document.documentElement.className += ' nogap';
+    document.body.removeChild(t);
+  })();
 
   var SITE = 'https://posoxai.github.io/', CODE = 'https://github.com/posoxAI/';
 
@@ -294,10 +330,13 @@
     if (text !== undefined) e.textContent = text;
     return e;
   }
-  function img(cls, src, alt) {
-    var i = el('img', cls);
-    i.src = src; i.alt = alt; i.width = 640; i.height = 640; i.loading = 'lazy'; i.decoding = 'async';
-    return i;
+  // WebP for browsers that have it, JPEG for the rest (Safari shows WebP only from 14).
+  function img(cls, name, alt) {
+    var p = document.createElement('picture'), s = document.createElement('source'), i = el('img', cls);
+    s.type = 'image/webp'; s.srcset = name + '.webp';
+    i.src = name + '.jpg'; i.alt = alt; i.width = 640; i.height = 640; i.loading = 'lazy'; i.decoding = 'async';
+    p.appendChild(s); p.appendChild(i);
+    return p;
   }
 
   function render() {
@@ -315,8 +354,8 @@
       var art = el('a', 'art');
       art.href = SITE + g.repo + '/';
       art.setAttribute('aria-label', S.playAria + t.name);
-      art.appendChild(img('day', 'shots/' + g.shot + '-day.webp', t.alt));
-      art.appendChild(img('night', 'shots/' + g.shot + '-night.webp', t.alt));
+      art.appendChild(img('day', 'shots/' + g.shot + '-day', t.alt));
+      art.appendChild(img('night', 'shots/' + g.shot + '-night', t.alt));
       var text = el('div', 'text');
       text.appendChild(el('p', 'kind', t.kind));
       text.appendChild(el('h2', '', t.name));
