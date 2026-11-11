@@ -2,7 +2,7 @@
 
 [Русская версия](README.ru.md)
 
-Ten small games for the browser. Each one fits in a single file, works on a phone and on a computer, and speaks English and Russian.
+Eleven small games for the browser. Each one fits in a single file, works on a phone and on a computer, and speaks English and Russian.
 
 **[All games on one page](https://posoxai.github.io/posoxAI/)**
 
@@ -194,6 +194,25 @@ Slide the tiles and merge equal numbers until you make 2048. The tiles are colou
 Lay a pipeline from the tap with pieces from a queue before the water comes on, after Pipe Mania, 1989. Every level wants a longer way and faster water.
 
 [Play](https://posoxai.github.io/Pipes/) · [Code](https://github.com/posoxAI/Pipes)
+
+</td>
+</tr>
+<tr>
+<td width="220" valign="top">
+<a href="https://posoxai.github.io/Blocks/">
+<picture>
+<source media="(prefers-color-scheme: dark)" srcset="shots/blocks-night.webp">
+<img src="shots/blocks-day.webp" width="200" alt="Blocks: coloured pieces on squared paper, a long piece falling towards a one-wide gap">
+</picture>
+</a>
+</td>
+<td valign="top">
+
+### Blocks
+
+Turn and move the falling pieces to fill whole rows, after the game Alexey Pajitnov made in 1984. A hold, a landing outline, and every ten rows the pieces fall faster.
+
+[Play](https://posoxai.github.io/Blocks/) · [Code](https://github.com/posoxAI/Blocks)
 
 </td>
 </tr>
